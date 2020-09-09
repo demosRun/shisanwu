@@ -1,0 +1,74 @@
+<template lang="pug">
+.home
+  .so.so-0
+    img.so.so-1(src="@|196.png|" o-animation="shrink" go="page2")
+    img.so.so-2(src="@|74.png|")
+    img.so.so-3(src="@|200.png|")
+    img.so.so-4(src="@|194.png|")
+    img.so.so-5(src="@|192.png|")
+    //- 云
+    img.so.add-so-1(src="@|add187.png|" o-animation="floatUpDown")
+    img.so.add-so-2(src="@|add189.png|" o-animation="floatUpDown")
+    img.so.add-so-3(src="@|add190.png|" o-animation="floatUpDown")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      owo.animate('fadeInDown', this.query('.so-4'))
+      owo.animate('zoomIn', this.query('.so-5'), 1000)
+      owo.animate('flipInX', this.query('.so-3'), 2000)
+      owo.animate('fadeInDown', this.query('.so-2'), 3000)
+    }
+  }
+</script>
+
+
+<style lang="less">
+.so {
+  position: absolute;
+}
+.so-0 {
+  left: 128px;
+  top: 0px;
+  width: 1920px;
+  height: 1080px;
+  z-index: 0;;
+}
+.so-1 {
+  left: 720px;
+  top: 937px;
+  z-index: -1;
+}
+.so-2 {
+  left: 358px;
+  top: 736px;
+}
+.so-3 {
+  left: 356px;
+  top: 609px;
+}
+.so-4 {
+  left: 367px;
+  top: 208px;
+}
+.so-5 {
+  left: 358px;
+  top: 351px;
+}
+.add-so-1 {
+  left: 803px;
+  top: 356px;
+  z-index: -1;
+}
+.add-so-2 {
+  left: 0px;
+  top: 300px;
+  z-index: -2;
+}
+.add-so-3 {
+  left: 701px;
+  top: 60px;
+  z-index: -3;
+}
+</style>

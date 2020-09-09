@@ -1,0 +1,251 @@
+<template lang="pug">
+.page2
+  .so.so-0
+    img.so.so-1(src="@|201.png|" o-animation="shrink" o-tap="exp")
+    img.so.so-2(src="@|203.png|")
+    img.so.so-3(src="@|203.png|")
+    .pann
+      .edit
+        .item
+          img.line(src="@|line.png|")
+          h2 经济保持中高速增长1
+          p 京西郊卢沟桥畔宛平城内，中国人民抗日战争纪念馆雄伟庄严。纪念馆前广场上鲜艳的五星红旗高高飘扬。纪念馆正门上方悬挂着纪念中国人民抗日战争暨世界反法西斯京西郊卢沟桥畔宛平城内，中国人民抗日战争纪念馆雄伟庄严。纪念馆前广场的五星斯。
+          .index
+          .video-box
+            .video-item
+        .item
+          img.line(src="@|line.png|")
+          h2 经济保持中高速增长2
+          p 京西郊卢沟桥畔宛平城内，中国人民抗日战争纪念馆雄伟庄严。纪念馆前广场上鲜艳的五星红旗高高飘扬。纪念馆正门上方悬挂着纪念中国人民抗日战争暨世界反法西斯京西郊卢沟桥畔宛平城内，中国人民抗日战争纪念馆雄伟庄严。纪念馆前广场的五星斯。
+          .index
+          .video-box
+            .video-item
+        .item
+          img.line(src="@|line.png|")
+          h2 经济保持中高速增长3
+          p 京西郊卢沟桥畔宛平城内，中国人民抗日战争纪念馆雄伟庄严。纪念馆前广场上鲜艳的五星红旗高高飘扬。纪念馆正门上方悬挂着纪念中国人民抗日战争暨世界反法西斯京西郊卢沟桥畔宛平城内，中国人民抗日战争纪念馆雄伟庄严。纪念馆前广场的五星斯。
+          .index
+          .video-box
+            .video-item
+      .conn
+        
+    //- 右侧菜单
+    .menu(o-tap="activeMenu") 目录
+    .menu-list
+      .title-bar
+        span 目录
+        img(src="@|close.png|" o-tap="noActiveMenu")
+      ul
+</template>
+<script>
+module.exports = {
+  created: function () {
+    const itemList = this.queryAll('.pann .item')
+    let newHtml = ''
+    this.query('.conn').style.width = itemList.length * 1300 + 100 + 'px'
+    let menuHtml = ''
+    let ind = 0
+    for (let index = itemList.length - 1; index >= 0; index--) {
+      const element = itemList[index];
+      
+      // 生成菜单
+      const menuText = element.query('h2').innerText
+      menuHtml += `<li o-tap="roolItem(${ind})">${ind + 1}.${menuText}</li>`
+      console.log(menuText, index)
+      element.query('.index').innerText = index + 1
+      newHtml += element.outerHTML
+      ind ++
+    }
+    this.query('.conn').innerHTML = newHtml
+    this.query('.menu-list ul').innerHTML = menuHtml
+    setTimeout(() => {
+      this.handleEvent(this, this.query('.menu-list ul'))
+    }, 100);
+  },
+  exp: function () {
+    this.$target.style.display = 'none'
+    this.query('.so-0').style.width = '100%'
+    this.query('.so-2').style.opacity = '0'
+  },
+  activeMenu: function () {
+    this.query('.menu-list').classList.add('show')
+  },
+  noActiveMenu: function () {
+    this.query('.menu-list').classList.remove('show')
+  },
+  roolItem: function (index) {
+    index = parseInt(index)
+    console.log(index)
+    this.query('.pann').scrollLeft = index * 1200
+  }
+}
+</script>
+<style lang="less">
+.so {
+  position: absolute;
+}
+.so-0 {
+  left: 0;
+  right: 0;
+  top: 38px;
+  width: 178px;
+  height: 1009px;
+  margin: auto;
+  transition: width 2s;
+  z-index: 9;
+}
+.so-1 {
+  left: 20px;
+  top: 320px;
+  z-index: 4;
+}
+.so-2 {
+  right: -20px;
+  top: 1px;
+  z-index: 3;
+  transition: opacity 1s;
+}
+.so-3 {
+  left: 0px;
+  top: 0px;
+  z-index: 3;
+}
+.pann {
+  position: absolute;
+  width: 100%;
+  height: 797px;
+  background-color: #ded5c1;
+  top: 108px;
+  margin: auto;
+  background-size: auto 100%;
+  overflow: auto;
+  .item {
+    width: 1100px;
+    height: 100%;
+    padding: 0 100px;
+    position: relative;
+    h2 {
+      color: #064264;
+      font-size: 30px;
+      position: absolute;
+      width: 34px;
+      text-align: center;
+      right: 140px;
+      top: 45px;
+    }
+    p {
+      width: 300px;
+      position: absolute;
+      font-size: 26px;
+      writing-mode: tb-rl;
+      height: 467px;
+      right: 220px;
+      top: 60px;
+      color: #064264;
+      line-height: 42px;
+    }
+  }
+}
+.video-item {
+  width: 633px;
+  height: 377px;
+}
+.index {
+  background-image: url('@|index.png|');
+  width: 95px;
+  height: 95px;
+  text-align: center;
+  line-height: 95px;
+  font-size: 36px;
+  color: white;
+  right: 10px;
+  position: absolute;
+}
+.video-box {
+  border: 2px solid #064264;
+  position: absolute;
+  left: 110px;
+  top: 60px;
+}
+.conn {
+  display: flex;
+  height: 100%;
+  background-size: auto 100%;
+  background-image: url('@|juanzhou-bg.jpg|');
+  min-width: 100%;
+}
+.line {
+  position: absolute;
+  right: 196px;
+  top: 60px;
+}
+.menu {
+  background-color: #8e0a0b;
+  color: white;
+  width: 30px;
+  position: fixed;
+  right: 0;
+  height: 80px;
+  border-radius: 10px 0 0 10px;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px 10px;
+  bottom: 260px;
+  user-select: none;
+  cursor: pointer;
+  z-index: 99;
+}
+.menu-list {
+  background-color: #951d18;
+  position: fixed;
+  right: 0;
+  z-index: 99;
+  width: 300px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 600px;
+  border-radius: 10px 0 0 10px;
+  padding: 10px 20px;
+  right: -350px;
+  transition: right 1s;
+  li {
+    line-height: 34px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  li:hover {
+    color: burlywood;
+  }
+}
+.show {
+  right: 0;
+}
+.title-bar {
+  display: flex;
+  color: white;
+  font-size: 22px;
+  justify-content: space-between;
+  height: 60px;
+  line-height: 60px;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  margin-bottom: 10px;
+  img {
+    cursor: pointer;
+  }
+}
+.edit {
+  display: none;
+}
+.item:nth-child(even) {
+  .index {
+    top: 500px;
+  }
+  p, h2, img,.video-box {
+    top: 240px;
+  }
+}
+</style>

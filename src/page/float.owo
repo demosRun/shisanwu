@@ -1,0 +1,34 @@
+<template lang="pug">
+.float
+  //- 旗帜
+  img.flag.flag-1(src="@|flag-1.png|")
+  img.flag.flag-2(src="@|flag-2.png|")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      owo.animate('fadeInDown', this.query('.flag-1'))
+      owo.animate('fadeInUp', this.query('.flag-2'))
+    }
+  }
+</script>
+
+
+<style lang="less">
+.flag {
+  position: fixed;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+.flag-1 {
+  left: 0;
+  top: 0;
+}
+.flag-2 {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+</style>
