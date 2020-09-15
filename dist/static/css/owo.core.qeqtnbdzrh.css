@@ -146,7 +146,7 @@ li {
 
 .home .add-so-3 {
   left: 701px;
-  top: 60px;
+  top: 80px;
   z-index: -3;
 }
 .float .flag {
@@ -195,12 +195,14 @@ li {
   top: 1px;
   z-index: 3;
   transition: opacity 1s;
+  transform: translate3d(0, 0, 0);
 }
 
 .page2 .so-3 {
   left: 0px;
   top: 0px;
   z-index: 3;
+  transform: translate3d(0, 0, 0);
 }
 
 .page2 .pann {
@@ -211,7 +213,9 @@ li {
   top: 108px;
   margin: auto;
   background-size: auto 100%;
-  overflow: auto;
+  overflow: scroll;
+  background-position-x: -88%;
+  background-image: url('../resource/juanzhou-bg.jpg');
 }
 
 .page2 .pann .item {
@@ -228,7 +232,7 @@ li {
   width: 34px;
   text-align: center;
   right: 140px;
-  top: 45px;
+  top: 75px;
 }
 
 .page2 .pann .item p {
@@ -240,7 +244,7 @@ li {
           writing-mode: tb-rl;
   height: 467px;
   right: 220px;
-  top: 60px;
+  top: 80px;
   color: #064264;
   line-height: 42px;
 }
@@ -259,6 +263,7 @@ li {
   font-size: 36px;
   color: white;
   right: 10px;
+  top: 70px;
   position: absolute;
 }
 
@@ -266,21 +271,21 @@ li {
   border: 2px solid #064264;
   position: absolute;
   left: 110px;
-  top: 60px;
+  top: 80px;
 }
 
 .page2 .conn {
   display: flex;
   height: 100%;
   background-size: auto 100%;
-  background-image: url('../resource/juanzhou-bg.jpg');
+  
   min-width: 100%;
 }
 
 .page2 .line {
   position: absolute;
   right: 196px;
-  top: 60px;
+  top: 80px;
 }
 
 .page2 .menu {
@@ -294,7 +299,7 @@ li {
   font-size: 30px;
   text-align: center;
   padding: 20px 10px;
-  bottom: 260px;
+  bottom: 280px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -342,8 +347,8 @@ li {
   color: white;
   font-size: 22px;
   justify-content: space-between;
-  height: 60px;
-  line-height: 60px;
+  height: 80px;
+  line-height: 80px;
   align-items: center;
   border-bottom: 1px solid #ccc;
   font-weight: bold;
@@ -359,7 +364,7 @@ li {
 }
 
 .page2 .item:nth-child(even) .index {
-  top: 500px;
+  top: 400px;
 }
 
 .page2 .item:nth-child(even) p,
