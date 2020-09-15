@@ -418,7 +418,7 @@
             var element = itemList[index]; // 生成菜单
 
             var menuText = element.query('h2').innerText;
-            menuHtml += "<li o-tap=\"roolItem(" + ind + ")\">" + (ind + 1) + "." + menuText + "</li>";
+            menuHtml += "<li o-tap=\"roolItem(" + ind + ")\">" + (itemList.length - ind) + "." + menuText + "</li>";
             console.log(menuText, index);
             element.query('.index').innerText = index + 1;
             newHtml += element.outerHTML;
@@ -445,7 +445,7 @@
         "roolItem": function roolItem(index) {
           index = parseInt(index);
           console.log(index);
-          this.query('.pann').scrollLeft = index * 1200;
+          this.query('.pann').scrollLeft = index * 1300;
         }
       }
     };
